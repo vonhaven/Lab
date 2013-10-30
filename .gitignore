@@ -41,3 +41,6 @@
 
 # other
 *.iws
+
+#vim
+*.swp

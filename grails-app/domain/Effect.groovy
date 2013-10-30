@@ -1,12 +1,12 @@
 class Effect {
 
-    int id
+    int code
     String name
     List<String> details
 
     static constraints = {
-        id min: 0
-        name blank: false
+        code min: 0, unique: true
+        name blank: false, unique: true
         details size: 4..4
     }
 }
