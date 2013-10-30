@@ -1,0 +1,100 @@
+body {
+    background-color:#eee;
+    color:#666;
+    font-family:"Courier New";
+    font-size:17px;
+}
+
+a {
+    color:#666;
+    text-decoration:none;
+}
+
+input {
+    background-color:transparent;
+    border:0;
+    border-bottom:1px solid #aaa;
+    color:#333;
+    font-family:"Courier New", sans-serif;
+    font-size:16px;
+    padding-left:5px;
+    width:250px;
+}
+
+div {
+    text-align:center;
+}
+
+span {
+    display:inline-block;
+    vertical-align:top;
+}
+
+#main {
+    margin:0 auto;
+    width:900px;
+}
+
+.clickable {
+    border:0;
+    color:#383;
+    cursor:pointer;
+    height:24px;
+    text-align:left;
+    margin-top:12px;
+    width:auto;
+}
+
+.title {
+    font-size:30px;
+    margin-top:24px;
+    margin-bottom:2px;
+    padding-bottom:18px;
+    text-align:center;
+}
+
+.header {
+    font-size:26px;
+    margin-bottom:16px;
+    text-align:center;
+}
+
+.subtitle {
+    color:#777;
+    font-size:22px;
+    margin-bottom:4px;
+}
+
+.pagetitle {
+    color:#999;
+    font-size:24px;
+}
+
+.box {
+    background-color:#e8e8e8;
+    border:1px solid #bbb;
+    display:inline-block;
+    padding:12px 14px 12px 16px;
+}
+
+.favorites {
+    color:#888;
+    font-size:17px;
+    margin-bottom:8px;
+}
+
+.small {
+    font-size:16px;
+}
+
+.HARMFUL {
+    color:#944;
+}
+
+.HELPFUL {
+    color:#474;
+}
+
+.NEUTRAL {
+    color:#449;
+}
