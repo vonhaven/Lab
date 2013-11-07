@@ -9,28 +9,30 @@
 		<r:layoutResources/>
 	</head>
 	<body>
-        <div class="title">
-            Alchemy Lab
-            <a class="subtitle">
-                by Vonhaven
-            </a>
-            <div class="favorites">
-                <a href="home">
-                    home
-                <a/> |
-                <a href="lab">
-                    lab
-                <a/> |
-                <a href="about">
-                    about
-                <a/>
+        <div class="main">
+            <div class="title">
+                Alchemy Lab
+                <a class="subtitle">
+                    by Vonhaven
+                </a>
+                <div class="favorites">
+                    <a href="home">
+                        home
+                    <a/> |
+                    <a href="lab">
+                        lab
+                    <a/> |
+                    <a href="about">
+                        about
+                    <a/>
+                </div>
+                <!--div class="pagetitle">
+                    &lt;<g:layoutTitle/>/&gt;
+                </div-->
             </div>
-            <!--div class="pagetitle">
-                &lt;<g:layoutTitle/>/&gt;
-            </div-->
+            <g:layoutBody/>
+            <g:javascript library="application"/>
+            <r:layoutResources/>
         </div>
-        <g:layoutBody/>
-		<g:javascript library="application"/>
-		<r:layoutResources/>
 	</body>
 </html>

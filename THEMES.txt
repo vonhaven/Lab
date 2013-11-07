@@ -1,0 +1,37 @@
+Themes
+    - Empirical Regime (Bad)
+        + Women married as property
+        + Slavery of races and lower classes
+    - Revolutionary Cult (Partly bad)
+        + Growing reputation
+        + Operates with violence and crime
+    - Four playable classes create elite 
+        + Cult Assassin (Q4Justice)
+            -> Supported cult until targeted innocents
+            -> Order to assassinate neutral medic
+                * Knows medic is meeting with a consultant in this location/time
+                * To mix fatal poison and slip into drink
+                    ^ Instead, mixes sleep potion
+                    ^ Slip-in successful, bartender counteracts
+            -> Instead aims to knock medic out and suggest exile instead of death
+                * Intends to save medic's life
+                * Neutral bartender suspects assassination
+                * Plan thwarted, bosses see failed attempt
+                * Is now targeted for death by cult and regime
+        + Two neutrals -> cultist
+            -> Bartender (Q4Peace)
+                * Saves medic's life with careful observance, counter-toxin
+                * "A shot of our best stuff. On the house."
+            -> Scholar / Chemist (Q4Knowledge)
+                * To rendezvous with medic
+                * Truth serum formulae discussion
+                * Wants to trade serum formulae for something else...
+        + One former Regime Medic (Q4Love)
+            -> Lost love to wealthy class enemy (feudal history)
+            -> On cult's veteran hit-list
+            -> Saved lives of many assassination targets
+            -> Now an Assassinaiton Target
+                * Harbors hidden hatred for regime
+        + Engage in alchemical tactics to survive
+            -> Regime thinks they are Cultists
+            -> Cultists think they are Regime Spies
