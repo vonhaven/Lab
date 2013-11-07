@@ -18,7 +18,7 @@
                 <div class="line">
                     <div class="filler">
                         <g:each in="${0..3}">
-                            <div class="slot">${ingredients[0].effects}</div> 
+                            <div class="slot">${ingredients[0].effects[0]}</div> 
                         </g:each>
                     </div>
                     <div class="filler"></div>

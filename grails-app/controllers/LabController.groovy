@@ -8,6 +8,9 @@ class LabController {
         ingredients << Reagent.findByCode(1)
         ingredients << Reagent.findByCode(2)
         ingredients << Reagent.findByCode(3)
+        ingredients.each() {
+            println it.effects
+        }
         [ingredients: ingredients]
     }
 }
