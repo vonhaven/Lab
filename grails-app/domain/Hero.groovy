@@ -19,10 +19,11 @@ class Hero {
     def knowledge = [:]
 
     public Hero() {
+        /*
         if (health != null) health = maxHealth
         Reagent.findAll().each() { reagent ->
             knowledge[reagent.code] = false 
-        }
+        }*/
     }
 
     static constraints = {

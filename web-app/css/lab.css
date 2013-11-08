@@ -1,3 +1,7 @@
+canvas {
+    padding-top:4px;
+}
+
 .line {
     display:block;
 }

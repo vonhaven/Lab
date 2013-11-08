@@ -10,4 +10,10 @@ class LabController {
         ingredients << Reagent.findByCode(3)
         [ingredients: ingredients]
     }
+
+    /** Provides a comprehensive list of reagents */
+    def reagents() {
+        def reagents = Reagent.findAll()
+        [reagents: reagents]
+    }
 }

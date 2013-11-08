@@ -7,6 +7,21 @@ class Reagent {
     Effect e2
     Effect e3
     Effect e4
+    BiasLevel bEarth
+    BiasLevel bWater
+    BiasLevel bWind
+    BiasLevel bStorm
+    BiasLevel bFire
+    BiasLevel bFrost
+    BiasLevel bLight
+    BiasLevel bShadow
+
+    public enum BiasLevel {
+        NONE,
+        LOW,
+        MEDIUIM,
+        HIGH
+    }
 
     static constraints = {
         code min: 0, unique: true

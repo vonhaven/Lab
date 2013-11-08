@@ -8,5 +8,6 @@ class UrlMappings {
 
         //lab mappings
         "/lab"(controller:"lab")
+        "/reagents"(controller:"lab", action:"reagents")
 	}
 }

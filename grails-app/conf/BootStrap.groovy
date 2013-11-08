@@ -42,35 +42,44 @@ class BootStrap {
         def reagents = []
 
         //TODO
-        //Randomly generate reagents for each
-        //user-- no cheating! :D
+        //randomly generate reagents for each new user
+        //pros: nautral anti-cheat, dynamic gameplay/replay
+        //cons: extra data to store, more logic
+        N = Reagent.BiasLevel.NONE
+        L = Reagent.BiasLevel.LOW
+        M = Reagent.BiasLevel.MEDIUM
+        H = Reagent.BiasLevel.HIGH
         reagents << [0, "Liferoot", 
             ["1", "2", "3", "4"],
             Effect.findByCode(0),
             Effect.findByCode(1),
             Effect.findByCode(2),
-            Effect.findByCode(3)
+            Effect.findByCode(3),
+            L, N, H, N, L, L, L, L 
         ]
         reagents << [1, "Emberthorn", 
             ["1", "2", "3", "4"],
             Effect.findByCode(2),
             Effect.findByCode(3),
             Effect.findByCode(4),
-            Effect.findByCode(5)
+            Effect.findByCode(5),
+            N, H, H, N, L, L, L, N 
         ]
         reagents << [2, "Gromsblood", 
             ["1", "2", "3", "4"],
             Effect.findByCode(10),
             Effect.findByCode(11),
             Effect.findByCode(12),
-            Effect.findByCode(13)
+            Effect.findByCode(13),
+            M, L, M, L, H, N, N, N 
         ]
         reagents << [3, "Dragonleaf", 
             ["1", "2", "3", "4"],
             Effect.findByCode(11),
             Effect.findByCode(12),
             Effect.findByCode(13),
-            Effect.findByCode(14)
+            Effect.findByCode(14),
+            L, N, N, M, L, N, H, N 
         ]
         reagents.each() { reagent ->
             new Reagent (
@@ -81,6 +90,14 @@ class BootStrap {
                 e2: reagent[4],
                 e3: reagent[5],
                 e4: reagent[6],
+                bEarth: reagent[7],
+                bWater: reagent[8],
+                bWind: reagent[9],
+                bStorm: reagent[10],
+                bFire: reagent[11],
+                bFrost: reagent[12],
+                bLight: reagent[13],
+                bShadow: reagent[14]
             ).save(flush: true, failOnError: true)
         }
     }

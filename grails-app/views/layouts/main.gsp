@@ -22,8 +22,8 @@
                     <a href="lab">
                         lab
                     <a/> |
-                    <a href="about">
-                        about
+                    <a href="reagents">
+                        reagents
                     <a/>
                 </div>
                 <!--div class="pagetitle">
