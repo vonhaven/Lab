@@ -6,21 +6,20 @@ class Bias
   colors: [
     "#cce",
     "#eec",
-    "#cec",
     "#ecc",
-    "#eee",
-    "#ccc",
+    "#cec",
     "#ece",
-    "#cee"
-  ]
+    "#ccc",
+    "#eee",
+    "#cee"]
   lo: null
   md: null
   hi: null
   x: null
   y: null
   
-  constructor: (@levels) ->
-    @canvas = document.getElementById 'biasMap'
+  constructor: (id, levels) ->
+    @canvas = document.getElementById "bias-#{id}"
     @context = @canvas.getContext '2d'
     @x = @canvas.width / 2
     @y = @canvas.height / 2
@@ -63,9 +62,9 @@ class Bias
     p = 0.25 * Math.PI
     o = 0.125 * Math.PI
     switch m
-      when "1" then level = @lo
-      when "2" then level = @md
-      when "3" then level = @hi
+      when "LOW" then level = @lo
+      when "MEDIUM" then level = @md
+      when "HIGH" then level = @hi
       else return 1
     @context.fillStyle = @colors[i % @colors.length]
     @context.strokeStyle = "#888"

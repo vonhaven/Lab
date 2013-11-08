@@ -9,7 +9,7 @@
 
     Bias.prototype.context = null;
 
-    Bias.prototype.colors = ["#cce", "#eec", "#cec", "#ecc", "#eee", "#ccc", "#ece", "#cee"];
+    Bias.prototype.colors = ["#cce", "#eec", "#ecc", "#cec", "#ece", "#ccc", "#eee", "#cee"];
 
     Bias.prototype.lo = null;
 
@@ -21,10 +21,9 @@
 
     Bias.prototype.y = null;
 
-    function Bias(levels) {
+    function Bias(id, levels) {
       var i;
-      this.levels = levels;
-      this.canvas = document.getElementById('biasMap');
+      this.canvas = document.getElementById("bias-" + id);
       this.context = this.canvas.getContext('2d');
       this.x = this.canvas.width / 2;
       this.y = this.canvas.height / 2;
@@ -64,13 +63,13 @@
       p = 0.25 * Math.PI;
       o = 0.125 * Math.PI;
       switch (m) {
-        case "1":
+        case "LOW":
           level = this.lo;
           break;
-        case "2":
+        case "MEDIUM":
           level = this.md;
           break;
-        case "3":
+        case "HIGH":
           level = this.hi;
           break;
         default:

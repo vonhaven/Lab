@@ -19,7 +19,7 @@ class Reagent {
     public enum BiasLevel {
         NONE,
         LOW,
-        MEDIUIM,
+        MEDIUM,
         HIGH
     }
 

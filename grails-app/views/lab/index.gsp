@@ -16,17 +16,17 @@
             </div>
             <div class="line">
                 <div class="filler">
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e4.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e3.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e2.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e1.name.toLowerCase() + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e4.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e3.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e2.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[0].e1.code + '.png')})"></div> 
                 </div>
                 <div class="filler"></div>
                 <div class="filler">
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e1.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e2.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e3.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e4.name.toLowerCase() + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e1.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e2.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e3.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[1].e4.code + '.png')})"></div> 
                 </div>
             </div>
             <div class="line">
@@ -39,17 +39,17 @@
             </div>
             <div class="line">
                 <div class="filler">
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e4.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e3.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e2.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e1.name.toLowerCase() + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e4.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e3.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e2.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[2].e1.code + '.png')})"></div> 
                 </div>
                 <div class="filler"></div>
                 <div class="filler">
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e1.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e2.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e3.name.toLowerCase() + '.png')})"></div> 
-                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e4.name.toLowerCase() + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e1.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e2.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e3.code + '.png')})"></div> 
+                    <div class="slot" style="background-image:url(${resource(dir: 'icons/effects', file: ingredients[3].e4.code + '.png')})"></div> 
                 </div>
             </div>
             <div class="line">
