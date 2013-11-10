@@ -3,7 +3,7 @@ class Effect {
     int code
     String name
     Alignment alignment
-    List<String> details
+    String desc
 
     public enum Alignment {
         HELPFUL,
@@ -14,6 +14,6 @@ class Effect {
     static constraints = {
         code min: 0, unique: true
         name blank: false, unique: true
-        details size: 4..4
+        desc blank: false
     }
 }

@@ -16,23 +16,25 @@ class BootStrap {
         Effect.Alignment G = Effect.Alignment.HELPFUL
         Effect.Alignment N = Effect.Alignment.NEUTRAL
         Effect.Alignment B = Effect.Alignment.HARMFUL
-        effects << [300, "Healing", ["Restores %m health instantly", "2", "3", "4"], G]
-        effects << [301, "Restoration", ["Restores %m health over %d", "2", "3", "4"], G]
-        effects << [302, "Regeneration", ["Increases health regeneration by %m over %d", "2", "3", "4"], G]
-        effects << [303, "Fortification", ["Increases both current and maximum health by %m for %d", "2", "3", "4"], G]
-        effects << [304, "Stasis", ["Freezes current health for %d", "2", "3", "4"], N]
-        effects << [305, "Lapsing", ["Returns current health to its value %d ago", "2", "3", "4"], N]
-        effects << [306, "Fake 1", ["Returns current health to its value %d ago", "2", "3", "4"], B]
-        effects << [307, "Fake 2", ["Returns current health to its value %d ago", "2", "3", "4"], B]
-        effects << [308, "Fake 3", ["Returns current health to its value %d ago", "2", "3", "4"], B]
-        effects << [309, "Fake 4", ["Returns current health to its value %d ago", "2", "3", "4"], B]
-        effects << [310, "Fake 5", ["Returns current health to its value %d ago", "2", "3", "4"], B]
-        effects << [311, "Fake 6", ["Returns current health to its value %d ago", "2", "3", "4"], B]
+        effects << [000, "Galeforce", "Immediately deals %m wind damage.", G]
+        effects << [001, "Suffocation", "Deals %m wind damage over %d moments.", G]
+        effects << [100, "Blinding", "Immediately deals %m solar damage.", G]
+        effects << [200, "Immolation", "Immediately deals %m fire damage.", G]
+        effects << [201, "Burning", "Deals %m fire damage over %d moments.", G]
+        effects << [300, "Spontaneity", "Immediately deals %m earth damage.", G]
+        effects << [301, "Mutation", "Immediately deals %m earth damage.", G]
+        effects << [302, "Toxification", "Deals %m earth damage after %d moments.", G]
+        effects << [400, "Shock", "Immediately deals %m storm damage.", G]
+        effects << [500, "Darkness", "Immediately deals %m shadow damage.", G]
+        effects << [600, "Frostbite", "Immediately deals %m frost damage.", G]
+        effects << [700, "Gagging", "Immediately deals %m water damage.", G]
+        effects << [701, "Drowning", "Deals %m water damage over %d moments.", G]
+        effects << [702, "Depths", "Deals %m water damage after %d moments.", G]
         effects.each() { effect ->
             new Effect (
                 code: effect[0], 
                 name: effect[1], 
-                details: effect[2],
+                desc: effect[2],
                 alignment: effect[3]
             ).save(flush: true, failOnError: true)
         }
@@ -53,32 +55,40 @@ class BootStrap {
             Effect.findByCode(300),
             Effect.findByCode(301),
             Effect.findByCode(302),
-            Effect.findByCode(303),
+            Effect.findByCode(700),
             N, N, N, H, N, N, N, L 
         ]
         reagents << [1, "Emberthorn", 
             ["a", "b", "c", "d"],
-            Effect.findByCode(302),
-            Effect.findByCode(303),
-            Effect.findByCode(304),
-            Effect.findByCode(305),
+            Effect.findByCode(200),
+            Effect.findByCode(201),
+            Effect.findByCode(400),
+            Effect.findByCode(600),
             N, N, M, N, L, N, L, N 
         ]
         reagents << [2, "Bloodstone", 
             ["a", "b", "c", "d"],
-            Effect.findByCode(306),
-            Effect.findByCode(307),
-            Effect.findByCode(308),
-            Effect.findByCode(309),
+            Effect.findByCode(000),
+            Effect.findByCode(300),
+            Effect.findByCode(500),
+            Effect.findByCode(600),
             L, N, N, L, N, L, L, N 
         ]
         reagents << [3, "Dragonleaf", 
             ["a", "b", "c", "d"],
-            Effect.findByCode(308),
-            Effect.findByCode(309),
-            Effect.findByCode(310),
-            Effect.findByCode(311),
+            Effect.findByCode(000),
+            Effect.findByCode(100),
+            Effect.findByCode(200),
+            Effect.findByCode(201),
             L, L, M, N, N, N, N, N 
+        ]
+        reagents << [4, "Glimmerscale",
+            ["a", "b", "c", "d"],
+            Effect.findByCode(700),
+            Effect.findByCode(701),
+            Effect.findByCode(702),
+            Effect.findByCode(100),
+            N, L, N, N, N, N, N, H 
         ]
         reagents.each() { reagent ->
             new Reagent (
