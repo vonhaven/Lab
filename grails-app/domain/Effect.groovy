@@ -3,6 +3,7 @@ class Effect {
     int code
     String name
     Alignment alignment
+    int element
     String desc
 
     public enum Alignment {

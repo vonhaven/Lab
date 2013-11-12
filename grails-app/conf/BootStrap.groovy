@@ -4,6 +4,7 @@ class BootStrap {
     def init = { servletContext ->
         bootstrapEffects()
         bootstrapReagents()
+        mix()
     }
     
     /** Teardown Y*/
@@ -16,166 +17,98 @@ class BootStrap {
         Effect.Alignment G = Effect.Alignment.HELPFUL
         Effect.Alignment N = Effect.Alignment.NEUTRAL
         Effect.Alignment B = Effect.Alignment.HARMFUL
-        effects << [000, "Galeforce", "Immediately deals %m wind damage.", G]
-        effects << [001, "Suffocation", "Deals %m wind damage over %d moments.", G]
-        effects << [002, "Windburn", "Deals %m wind damage after %d moments.", G]
-        effects << [100, "Sunfire", "Immediately deals %m solar damage.", G]
-        effects << [101, "Wrinkling", "Immediately deals %m solar damage.", G]
-        effects << [102, "Sunburn", "Deals %m solar damage after %d moments.", G]
-        effects << [200, "Sparks", "Immediately deals %m fire damage.", G]
-        effects << [201, "Immolation", "Deals %m fire damage over %d moments.", G]
-        effects << [202, "Burning", "Deals %m fire damage after %d moments.", G]
-        effects << [300, "Splitting", "Immediately deals %m earth damage.", G]
-        effects << [301, "Crumbling", "Deals %m earth damage over %d moments.", G]
-        effects << [302, "Erosion", "Deals %m earth damage after %d moments.", G]
-        effects << [400, "Shock", "Immediately deals %m storm damage.", G]
-        effects << [401, "Jolting", "Deals %m storm damage over %d moments.", G]
-        effects << [402, "Aftershock", "Deals %m storm damage after %d moments.", G]
-        effects << [500, "Death", "Immediately deals %m shadow damage.", G]
-        effects << [501, "Putrefaction", "Deals %m shadow damage over %d moments.", G]
-        effects << [502, "Doom", "Deals %m shadow damage after %d moments.", G]
-        effects << [600, "Piercing", "Immediately deals %m frost damage.", G]
-        effects << [601, "Freezing", "Deals %m frost damage over %d moments.", G]
-        effects << [602, "Frostbite", "Deals %m frost damage after %d moments.", G]
-        effects << [700, "Inundation", "Immediately deals %m water damage.", G]
-        effects << [701, "Gagging", "Deals %m water damage over %d moments.", G]
-        effects << [702, "Drowning", "Deals %m water damage after %d moments.", G]
+        effects << [000, "Galeforce", "Immediately deals %m wind damage.", B]
+        effects << [001, "Suffocation", "Deals %m wind damage over %d moments.", B]
+        effects << [002, "Windburn", "Deals %m wind damage after %d moments.", B]
+        effects << [004, "Gusts", "Amplifies wind damage taken by %m%.", B]
+        effects << [100, "Sunfire", "Immediately deals %m solar damage.", B]
+        effects << [101, "Wrinkling", "Immediately deals %m solar damage.", B]
+        effects << [102, "Sunburn", "Deals %m solar damage after %d moments.", B]
+        effects << [200, "Sparks", "Immediately deals %m fire damage.", B]
+        effects << [201, "Immolation", "Deals %m fire damage over %d moments.", B]
+        effects << [202, "Burning", "Deals %m fire damage after %d moments.", B]
+        effects << [300, "Splitting", "Immediately deals %m earth damage.", B]
+        effects << [301, "Crumbling", "Deals %m earth damage over %d moments.", B]
+        effects << [302, "Erosion", "Deals %m earth damage after %d moments.", B]
+        effects << [400, "Shock", "Immediately deals %m storm damage.", B]
+        effects << [401, "Jolting", "Deals %m storm damage over %d moments.", B]
+        effects << [402, "Aftershock", "Deals %m storm damage after %d moments.", B]
+        effects << [500, "Death", "Immediately deals %m shadow damage.", B]
+        effects << [501, "Putrefaction", "Deals %m shadow damage over %d moments.", B]
+        effects << [502, "Doom", "Deals %m shadow damage after %d moments.", B]
+        effects << [600, "Piercing", "Immediately deals %m frost damage.", B]
+        effects << [601, "Freezing", "Deals %m frost damage over %d moments.", B]
+        effects << [602, "Frostbite", "Deals %m frost damage after %d moments.", B]
+        effects << [700, "Inundation", "Immediately deals %m water damage.", B]
+        effects << [701, "Gagging", "Deals %m water damage over %d moments.", B]
+        effects << [702, "Drowning", "Deals %m water damage after %d moments.", B]
         effects.each() { effect ->
             new Effect (
                 code: effect[0], 
                 name: effect[1], 
                 desc: effect[2],
-                alignment: effect[3]
+                alignment: effect[3],
+                element: effect[0] / 100
             ).save(flush: true, failOnError: true)
         }
     }
     
     private void bootstrapReagents() {
         def reagents = []
-        //TODO
-        //randomly generate reagents for each new user
-        //pros: nautral anti-cheat, dynamic gameplay/replay
-        //cons: extra data to store, more logic
-        Reagent.BiasLevel N = Reagent.BiasLevel.NONE
-        Reagent.BiasLevel L = Reagent.BiasLevel.LOW
-        Reagent.BiasLevel M = Reagent.BiasLevel.MEDIUM
-        Reagent.BiasLevel H = Reagent.BiasLevel.HIGH
-        reagents << [0, "Lifeseed", 
-            ["a", "d", "c", "d"],
-            Effect.findByCode(300),
-            Effect.findByCode(301),
-            Effect.findByCode(302),
-            Effect.findByCode(700),
-            N, N, N, H, N, N, N, L]
-        reagents << [1, "Emberthorn", 
-            ["a", "b", "c", "d"],
-            Effect.findByCode(200),
-            Effect.findByCode(201),
-            Effect.findByCode(400),
-            Effect.findByCode(600),
-            N, N, M, N, L, N, L, N]
-        reagents << [2, "Aeynite", 
-            ["a", "b", "c", "d"],
-            Effect.findByCode(000),
-            Effect.findByCode(300),
-            Effect.findByCode(500),
-            Effect.findByCode(600),
-            L, N, N, L, N, L, L, N]
-        reagents << [3, "Dragonleaf", 
-            ["a", "b", "c", "d"],
-            Effect.findByCode(000),
-            Effect.findByCode(100),
-            Effect.findByCode(200),
-            Effect.findByCode(201),
-            L, L, M, N, N, N, N, N]
-        reagents << [4, "Glimmerscale",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(700),
-            Effect.findByCode(701),
-            Effect.findByCode(702),
-            Effect.findByCode(100),
-            N, L, N, N, N, N, N, H]
-        reagents << [5, "Deathblossom",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(500),
-            Effect.findByCode(501),
-            Effect.findByCode(502),
-            Effect.findByCode(300),
-            N, N, N, L, N, H, N, N]
-        reagents << [6, "Topazine",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(400),
-            Effect.findByCode(401),
-            Effect.findByCode(100),
-            Effect.findByCode(101),
-            N, M, N, N, M, N, N, N]
-        reagents << [7, "Everbloom",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(300),
-            Effect.findByCode(301),
-            Effect.findByCode(600),
-            Effect.findByCode(601),
-            N, N, N, M, N, N, M, N]
-        reagents << [8, "Silverdust",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(100),
-            Effect.findByCode(400),
-            Effect.findByCode(401),
-            Effect.findByCode(500),
-            N, L, N, N, M, L, N, N]
-        reagents << [9, "Hawkeye",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(000),
-            Effect.findByCode(001),
-            Effect.findByCode(002),
-            Effect.findByCode(100),
-            H, L, N, N, N, N, N, N]
-        reagents << [10, "Sapphire",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(600),
-            Effect.findByCode(601),
-            Effect.findByCode(700),
-            Effect.findByCode(701),
-            N, N, N, N, N, N, M, M]
-        reagents << [11, "Emerald",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(300),
-            Effect.findByCode(301),
-            Effect.findByCode(700),
-            Effect.findByCode(701),
-            N, N, N, M, N, N, N, M]
-        reagents << [12, "Ruby",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(100),
-            Effect.findByCode(101),
-            Effect.findByCode(200),
-            Effect.findByCode(201),
-            N, M, M, N, N, N, N, N]
-        reagents << [13, "Saturnite",
-            ["a", "b", "c", "d"],
-            Effect.findByCode(000),
-            Effect.findByCode(300),
-            Effect.findByCode(400),
-            Effect.findByCode(700),
-            L, N, N, L, L, N, N, L]
+        reagents << [0, "Lifeseed", "a", 0.14, 5,
+            [0, 0, 0, 3, 0, 0, 0, 1]]
+        reagents << [1, "Emberthorn", "b", 0.45, 6,
+            [0, 0, 2, 0, 1, 0, 1, 0]]
+        reagents << [2, "Aeynite", "c", 0.81, 42,
+            [1, 0, 0, 1, 0, 1, 1, 0]]
+        reagents << [3, "Dragonleaf", "d", 0.05, 14,
+            [1, 1, 2, 0, 0, 0, 0, 0]]
+        reagents << [4, "Glimmerscale", "e", 0.09, 7,
+            [0, 1, 0, 0, 0, 0, 0, 3]]
+        reagents << [5, "Deathblossom", "f", 0.06, 22,
+            [0, 0, 0, 1, 0, 3, 0, 0]]
+        reagents << [6, "Topazine", "g", 0.82, 100,
+            [0, 2, 0, 0, 2, 0, 0, 0]]
+        reagents << [7, "Everbloom", "h", 0.06, 3,
+            [0, 0, 0, 2, 0, 0, 2, 0]]
+        reagents << [8, "Silverdust", "i", 0.22, 135,
+            [0, 1, 0, 0, 2, 1, 0, 0]]
+        reagents << [9, "Hawkeye", "j", 0.27, 75,
+            [3, 1, 0, 0, 0, 0, 0, 0]]
+        reagents << [10, "Sapphire", "k", 0.80, 100,
+            [0, 0, 0, 0, 0, 0, 2, 2]]
+        reagents << [11, "Emerald", "l", 0.83, 100,
+            [0, 0, 0, 2, 0, 0, 0, 2]]
+        reagents << [12, "Ruby", "m", 0.84, 100,
+            [0, 2, 2, 0, 0, 0, 0, 0]]
+        reagents << [13, "Saturnite", "n", 0.85, 100,
+            [1, 0, 0, 1, 1, 0, 0, 1]]
         reagents.each() { reagent ->
             new Reagent (
                 code: reagent[0],
                 name: reagent[1],
-                details: reagent[2],
-                e1: reagent[3],
-                e2: reagent[4],
-                e3: reagent[5],
-                e4: reagent[6],
-                bWind: reagent[7],
-                bLight: reagent[8],
-                bFire: reagent[9],
-                bEarth: reagent[10],
-                bStorm: reagent[11],
-                bShadow: reagent[12],
-                bFrost: reagent[13],
-                bWater: reagent[14]
+                desc: reagent[2],
+                weight: reagent[3],
+                value: reagent[4],
+                bias: Reagent.calculateBias(reagent[5]) 
             ).save(flush: true, failOnError: true)
+        }
+    }
+
+    /** A programmer's finest alchemy */
+    private void mix() {
+        def reagents = Reagent.findAll()
+        reagents.each() { reagent ->
+            def effects = []
+            for (int i=0; i<Element.values().size(); i++) {
+                for (int j=0; j<reagent.getBiasOfType(i); j++) {
+                    effects += Effect.findAllByElement(i).getAt(j)
+                }
+            }
+            reagent.e1 = effects[0]
+            reagent.e2 = effects[1]
+            reagent.e3 = effects[2]
+            reagent.e4 = effects[3]
         }
     }
 }

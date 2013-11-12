@@ -22,7 +22,7 @@
     Bias.prototype.y = null;
 
     function Bias(id, levels) {
-      var i;
+      var biases, i;
       this.canvas = document.getElementById("bias-" + id);
       this.context = this.canvas.getContext('2d');
       this.x = this.canvas.width / 2;
@@ -32,11 +32,10 @@
       this.hi = this.y * 12 / 13;
       this.drawFrame();
       if (levels) {
-        levels = levels.replace("[", "").replace("]", "").replace(/\s+/g, ' ').split(",");
-        console.log("Biases: " + this.levels);
-        for (i = 0; i <= 7; i++) {
-          this.drawSlice(this.canvas.width / 2, this.canvas.height / 2, i, levels[i]);
-        }
+        biases = [levels % 4, Math.floor(levels / 4) % 4, Math.floor(levels / 16) % 4, Math.floor(levels / 64) % 4, Math.floor(levels / 256) % 4, Math.floor(levels / 1024) % 4, Math.floor(levels / 4096) % 4, Math.floor(levels / 16384) % 4];
+      }
+      for (i = 0; i <= 7; i++) {
+        this.drawSlice(this.canvas.width / 2, this.canvas.height / 2, i, biases[i]);
       }
     }
 
@@ -63,13 +62,13 @@
       p = 0.25 * Math.PI;
       o = 0.125 * Math.PI;
       switch (m) {
-        case "LOW":
+        case 1:
           level = this.lo;
           break;
-        case "MEDIUM":
+        case 2:
           level = this.md;
           break;
-        case "HIGH":
+        case 3:
           level = this.hi;
           break;
         default:
