@@ -55,33 +55,33 @@ class BootStrap {
     
     private void bootstrapReagents() {
         def reagents = []
-        reagents << [0, "Lifeseed", "a", 0.14, 5,
+        reagents << [0, "Lifeseed", "a", 14, 5,
             [0, 0, 0, 3, 0, 0, 0, 1]]
-        reagents << [1, "Emberthorn", "b", 0.45, 6,
+        reagents << [1, "Emberthorn", "b", 45, 6,
             [0, 0, 2, 0, 1, 0, 1, 0]]
-        reagents << [2, "Aeynite", "c", 0.81, 42,
+        reagents << [2, "Aeynite", "c", 81, 42,
             [1, 0, 0, 1, 0, 1, 1, 0]]
-        reagents << [3, "Dragonleaf", "d", 0.05, 14,
+        reagents << [3, "Dragonleaf", "d", 5, 14,
             [1, 1, 2, 0, 0, 0, 0, 0]]
-        reagents << [4, "Glimmerscale", "e", 0.09, 7,
+        reagents << [4, "Glimmerscale", "e", 9, 7,
             [0, 1, 0, 0, 0, 0, 0, 3]]
-        reagents << [5, "Deathblossom", "f", 0.06, 22,
+        reagents << [5, "Deathblossom", "f", 6, 22,
             [0, 0, 0, 1, 0, 3, 0, 0]]
-        reagents << [6, "Topazine", "g", 0.82, 100,
+        reagents << [6, "Topazine", "g", 82, 100,
             [0, 2, 0, 0, 2, 0, 0, 0]]
-        reagents << [7, "Everbloom", "h", 0.06, 3,
+        reagents << [7, "Everbloom", "h", 6, 3,
             [0, 0, 0, 2, 0, 0, 2, 0]]
-        reagents << [8, "Silverdust", "i", 0.22, 135,
+        reagents << [8, "Silverdust", "i", 22, 135,
             [0, 1, 0, 0, 2, 1, 0, 0]]
-        reagents << [9, "Hawkeye", "j", 0.27, 75,
+        reagents << [9, "Hawkeye", "j", 27, 75,
             [3, 1, 0, 0, 0, 0, 0, 0]]
-        reagents << [10, "Sapphire", "k", 0.80, 100,
+        reagents << [10, "Sapphire", "k", 80, 100,
             [0, 0, 0, 0, 0, 0, 2, 2]]
-        reagents << [11, "Emerald", "l", 0.83, 100,
+        reagents << [11, "Emerald", "l", 83, 100,
             [0, 0, 0, 2, 0, 0, 0, 2]]
-        reagents << [12, "Ruby", "m", 0.84, 100,
+        reagents << [12, "Ruby", "m", 84, 100,
             [0, 2, 2, 0, 0, 0, 0, 0]]
-        reagents << [13, "Saturnite", "n", 0.85, 100,
+        reagents << [13, "Saturnite", "n", 85, 100,
             [1, 0, 0, 1, 1, 0, 0, 1]]
         reagents.each() { reagent ->
             new Reagent (

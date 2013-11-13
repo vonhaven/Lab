@@ -1,25 +1,25 @@
 (function() {
-  var Bias;
+  var Reagent;
 
-  Bias = (function() {
+  Reagent = (function() {
 
-    Bias.prototype.canvas = null;
+    Reagent.prototype.canvas = null;
 
-    Bias.prototype.context = null;
+    Reagent.prototype.context = null;
 
-    Bias.prototype.colors = ["#cce", "#eec", "#ecc", "#cec", "#ece", "#ccc", "#eee", "#cee"];
+    Reagent.prototype.colors = ["#cce", "#eec", "#ecc", "#cec", "#ece", "#ccc", "#eee", "#cee"];
 
-    Bias.prototype.lo = null;
+    Reagent.prototype.lo = null;
 
-    Bias.prototype.md = null;
+    Reagent.prototype.md = null;
 
-    Bias.prototype.hi = null;
+    Reagent.prototype.hi = null;
 
-    Bias.prototype.x = null;
+    Reagent.prototype.x = null;
 
-    Bias.prototype.y = null;
+    Reagent.prototype.y = null;
 
-    function Bias(id, levels, weight, value) {
+    function Reagent(id, levels, weight, value) {
       var biases, i;
       this.canvas = document.getElementById("bias-" + id);
       this.context = this.canvas.getContext('2d');
@@ -38,7 +38,7 @@
       this.drawMetaData(weight, value);
     }
 
-    Bias.prototype.drawFrame = function() {
+    Reagent.prototype.drawFrame = function() {
       var r;
       r = Math.PI * 2;
       this.context.strokeStyle = "#aaa";
@@ -56,7 +56,7 @@
       return this.context.stroke();
     };
 
-    Bias.prototype.drawSlice = function(x, y, i, m) {
+    Reagent.prototype.drawSlice = function(x, y, i, m) {
       var level, o, p;
       p = 0.25 * Math.PI;
       o = 0.125 * Math.PI;
@@ -83,23 +83,24 @@
       return this.context.stroke();
     };
 
-    Bias.prototype.drawLine = function(x1, x2, y1, y2) {
+    Reagent.prototype.drawLine = function(x1, x2, y1, y2) {
       this.context.strokeStyle = "#bbb";
       this.context.moveTo(x1, y1);
       this.context.lineTo(x2, y2);
       return this.context.stroke();
     };
 
-    Bias.prototype.drawMetaData = function(weight, value) {
-      this.context.fillStyle = "#555";
+    Reagent.prototype.drawMetaData = function(weight, value) {
+      this.context.fillStyle = "#777";
       this.context.font = "14px Courier New";
-      return this.context.fillText("" + weight, 0, 0);
+      this.context.fillText("" + value, 6, 11);
+      return this.context.fillText("." + weight, 6, this.y * 2);
     };
 
-    return Bias;
+    return Reagent;
 
   })();
 
-  window.Bias = Bias;
+  window.Reagent = Reagent;
 
 }).call(this);

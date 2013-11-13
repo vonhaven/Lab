@@ -3,7 +3,7 @@ class Reagent {
     int code
     String name
     String desc
-    double weight
+    int weight
     int value
     int bias
     Effect e1
@@ -15,6 +15,7 @@ class Reagent {
         code min: 0, unique: true
         name blank: false, unique: true
         desc blank: false
+        weight min: 0, max: 100
         value min: 0, max: 25000
         bias unique: true
         e1 nullable: true

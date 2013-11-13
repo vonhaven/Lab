@@ -1,6 +1,5 @@
-#TSP visualization service for canvas
-class Bias
-    path: null
+#Reagent metadata and bias visualization object
+class Reagent
     canvas: null
     context: null
     colors: ["#cce","#eec","#ecc","#cec","#ece","#ccc","#eee","#cee"]
@@ -10,7 +9,7 @@ class Bias
     x: null
     y: null
   
-    constructor: (id, levels) ->
+    constructor: (id, levels, weight, value) ->
         @canvas = document.getElementById "bias-#{id}"
         @context = @canvas.getContext '2d'
         @x = @canvas.width / 2
@@ -32,31 +31,23 @@ class Bias
             ]
         for i in [0..7]
             @drawSlice @canvas.width / 2, @canvas.height / 2, i, biases[i]
+        @drawMetaData weight, value
 
     drawFrame: ->
         r = Math.PI * 2
         @context.strokeStyle = "#aaa"
-        #outermost ring
-        #@context.fillStyle = "#e8e8e8"
         @context.beginPath()
         @context.arc @x, @y, @hi, 0, r
         @context.closePath()
         @context.stroke()
-        #@context.fill()
-        #middle ring
-        #@context.fillStyle = "#eaeaea"
         @context.beginPath()
         @context.arc @x, @y, @md, 0, r
         @context.closePath()
         @context.stroke()
-        #@context.fill()
-        #innermost ring
-        #@context.fillStyle = "#efefef"
         @context.beginPath()
         @context.arc @x, @y, @lo, 0, r
         @context.closePath()
         @context.stroke()
-        #@context.fill()
 
     drawSlice: (x, y, i, m) ->
         p = 0.25 * Math.PI
@@ -74,9 +65,6 @@ class Bias
         @context.closePath()
         @context.fill()
         @context.stroke()
-        #@context.fillStyle= "#555"
-        #@context.font = "14px Courier New"
-        #@context.fillText "#{i}", x - 4.5, y - 13
 
     drawLine: (x1, x2, y1, y2) ->
         @context.strokeStyle = "#bbb"
@@ -84,4 +72,10 @@ class Bias
         @context.lineTo x2, y2
         @context.stroke()
 
-window.Bias = Bias
+    drawMetaData: (weight, value) ->
+        @context.fillStyle = "#777"
+        @context.font = "14px Courier New"
+        @context.fillText "#{value}", 6, 11
+        @context.fillText ".#{weight}", 6, @y * 2
+
+window.Reagent = Reagent
